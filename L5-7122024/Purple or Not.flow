@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"./ColorPurple - Sheet1.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs://Users/etashjhanji/Documents/GitHub/PGSS_CS_Lab/L5-7122024/./ColorPurple - Sheet1.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs://Users/etashjhanji/Documents/GitHub/PGSS_CS_Lab/L5-7122024/./ColorPurple - Sheet1.csv\"]\n  destination_frame: \"ColorPurple___Sheet1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 6\n  single_quotes: false\n  column_names: [\"R\",\"G\",\"B\",\"PurpleOrNot\",\"Gender\",\"AndrewID\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 4194304\n  escapechar: undefined"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"ColorPurple___Sheet1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"ColorPurple___Sheet1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"ColorPurple___Sheet1.hex\", [0.75], [\"trainset\",\"testset\"], 69420"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"build_control\":{\"project_name\":\"purple or not model\",\"distribution\":\"AUTO\",\"nfolds\":3,\"balance_classes\":false,\"stopping_criteria\":{\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":0,\"max_runtime_secs_per_model\":0,\"stopping_rounds\":3,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":-1},\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false},\"input_spec\":{\"training_frame\":\"trainset\",\"response_column\":\"PurpleOrNot\",\"validation_frame\":\"testset\",\"ignored_columns\":[\"Gender\",\"AndrewID\"],\"sort_metric\":\"AUTO\"},\"build_models\":{\"exclude_algos\":[],\"exploitation_ratio\":-1,\"monotone_constraints\":[]}}, 'exec'"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"purple or not model@@PurpleOrNot\""
+    },
+    {
+      "type": "cs",
+      "input": "getJobs"
+    },
+    {
+      "type": "cs",
+      "input": "getCloud"
+    }
+  ]
+}
